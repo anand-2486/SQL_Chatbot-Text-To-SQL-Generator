@@ -4,6 +4,8 @@ from pre_processing import pre_processing
 from schema import schema
 from schema import schema_to_text
 from db import save_in_db
+from relationship import relationship
+from diagram import er_diagram
 
 st.title("SQL Chatbot(Text to SQL Converter)")
 
@@ -31,3 +33,9 @@ if files:
     st.dataframe(tables[selected_table].head(10))
 
 schema_text=schema_to_text(schema_list)
+relation=relationship(tables,schema_list)
+if files:
+    if relation:
+        st.subheader(f"ER Diagram")
+        figure=er_diagram(tables,relation)  
+        st.pyplot(figure)
