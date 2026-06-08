@@ -3,3 +3,5 @@ streamlit
 sqlalchemy
 networkx
 matplotlib
+openai
+python-dotenv
