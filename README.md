@@ -1,1 +1,1 @@
-# SQL_Chatbot-Text-To-SQL-Generator
+# Natural Language to SQL
