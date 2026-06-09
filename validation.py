@@ -1,3 +1,4 @@
+import re
 keywords=["DROP","DELETE","UPDATE","INSERT","ALTER","TRUNCATE"]
 
 def valid(text):
@@ -23,12 +24,12 @@ def get_schema(schema):
         for column in info["columns"]:
             columns.add(column.lower())
 
-    return column
+    return columns
 
 def is_query_valid(query,schema):
     schemas=get_schema(schema)
 
-    words=query.lower().split()
+    words=re.findall(r"[a-zA-Z_]+",query.lower())
     matched=False
     for word in words:
         if word in schemas:
