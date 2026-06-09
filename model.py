@@ -22,8 +22,16 @@ def sql_generator(schema,relation,question):
     Question:
     {question}
 
-    Generate ONLY SQL query.
-    Do not explain anything.
+    Rules:
+    - Do NOT use markdown
+    - Generate only SELECT queries
+    - Return only raw SQL query
+    - Do NOT use ```sql
+    - Do NOT explain anything
+    - Format SQL professionally
+    - Keep SELECT columns on same line
+    - Put FROM, JOIN, WHERE clauses on new lines
+    - Provide understandable format for any user
     """
 
     response=llm.chat.completions.create(
